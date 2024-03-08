@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace
 }
+
 body {
     min-height: 100vh;
     display: flex;
@@ -11,18 +12,40 @@ body {
     justify-content: center;
     background: rgb(34, 82, 177);
 }
+
+#title{
+    margin-top: 2vmin;
+    margin-left: 5vmin;
+    text-align: center;
+}
+
 .container{
     width: 750px;
     background: white;
     border-radius: 15px;
 }
-img{
-    margin-top: 10vmin;
+
+#starting{
+    margin-top: 3vmin;
+    margin-left: 5vmin;
+    text-align: center;
 }
+
+.img-container {
+    display: flex;
+    justify-content: center;
+}
+
+img{
+    margin-top: 5vmin;
+    max-width: 40%;
+}
+
 .box{
     display: flex;
-
+    justify-content: space-evenly;
 }
+
 .keyboard{
     padding: 2vmin;
     display: flex;
@@ -30,11 +53,30 @@ img{
     justify-content: space-between;
     width: 33%;
 }
+
 .keyboard button {
     width: 3vmin;
     margin-bottom: 5px;
+    text-transform: uppercase;
 }
+
 .stats{
     display: grid;
-    align-items: flex-end;
+    align-items:normal;
+    margin-bottom: 4vmin;
+}
+
+.word-display {
+    display: flex;
+    gap: 5vmin;
+    padding: 5px;
+    margin: 5vmin;
+    list-style: none;
+    justify-content: center;
+}
+
+.word-display .letter {
+    width: 3vmin;
+    border-bottom: .5vmin solid black;
+    text-transform: uppercase;
 }
