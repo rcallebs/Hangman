@@ -1,0 +1,25 @@
+Starting on the homepage a "Play Now" button is the only item
+
+Once clicked, the users screen will change from the welcome/homepage to the game screen.
+
+A gallow will be displayed on the left hand of the screen.
+
+Underscores, which denote a letter giving the hidden words character length to the player, will be shown to the right of the gallow. 
+    The hidden word will be chosen from a preset random selection of words.
+
+A full alphabet of clickable letters will be shown below the underscores.
+    A "Reset Game" button will be displayed when the round is over
+        If the "Reset Game" is clicked the random word will change, any correct/incorrect guesses, and the letterboard will be reset.
+
+If a letter is clicked that letter has been selected. A letter cannot be selected more than once, a selected letter will be identified by having a darker background than at the start. Hovering over an unselected letter will change the appearance so the user knows they are clicking their intended letter.
+    Clicking anywhere else on the screen will have no effect, only an unselected letter or the reset button will have any effect
+
+If the selected letter is not in the word, that will add 1 to the players incorrect guesses and a new piece of the stick figure will appear on screen
+    If a player has less than 6 incorrect guesses the game will continue
+        If that is the 6th incorrect guess the round is over and the player will lose. At that point a full stick figure will be shown on the screen.
+        When the round is lost a losing message will appear on the screen and the reset button will become visible.
+
+If the letter selected is in the hidden word, the underscore below where that letter is located in the hidden word will be replaced with the selected letter
+    When a correct guess is made, 1 will be added to the value of correct guesses. 
+        When correct guesses is equal to the legnth of the hidden word, the user has won the game.
+        When a player has won a winning message will appear and the reset button will become visible.
