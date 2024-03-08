@@ -9,7 +9,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgb(18, 17, 17);
+    background: rgb(34, 82, 177);
 }
 .container{
     width: 750px;
@@ -17,7 +17,11 @@ body {
     border-radius: 15px;
 }
 img{
-    margin-top: 
+    margin-top: 10vmin;
+}
+.box{
+    display: flex;
+
 }
 .keyboard{
     padding: 2vmin;
@@ -25,9 +29,12 @@ img{
     flex-wrap: wrap;
     justify-content: space-between;
     width: 33%;
-    margin: 
 }
 .keyboard button {
     width: 3vmin;
     margin-bottom: 5px;
+}
+.stats{
+    display: grid;
+    align-items: flex-end;
 }
