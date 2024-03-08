@@ -1,4 +1,33 @@
-title {
-    text-align: left;
-    color:blue; 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(18, 17, 17);
+}
+.container{
+    width: 750px;
+    background: white;
+    border-radius: 15px;
+}
+img{
+    margin-top: 
+}
+.keyboard{
+    padding: 2vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 33%;
+    margin: 
+}
+.keyboard button {
+    width: 3vmin;
+    margin-bottom: 5px;
 }
