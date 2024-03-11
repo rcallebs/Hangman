@@ -86,9 +86,13 @@ img {
 }
 
 .hint-box {
-    text-align: center;
+  text-align: center;
 }
 
 .hint-word {
-    font-weight: bold;
+  font-weight: bold;
+}
+
+.hint {
+  margin-top: 1vmin;
 }
