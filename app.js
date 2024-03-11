@@ -37,7 +37,14 @@ function getWord() {
   for (let i = 0; i < word.word.length; i++) {
     showCharacterFlags.push(false);
   }
+  renderHint();
   return word;
+}
+
+function renderHint(){
+    const hintEl = document.querySelector(`.hint`);
+    const word = myWords[wordBeingGuessed];
+    hintEl.textContent = word.hint;
 }
 
 
@@ -45,7 +52,7 @@ function shouldShowChar(charIndex) {
   return showCharacterFlags[charIndex];
 }
 
-//
+
 function guessHandler(charGuess, guessIndex) {
   let thisWord = myWords[wordBeingGuessed];
   let isCorrect = charGuess == thisWord.word[guessIndex];
