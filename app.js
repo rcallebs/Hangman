@@ -44,7 +44,7 @@ function getWord() {
 function renderHint(){
     const hintEl = document.querySelector(`.hint`);
     const word = myWords[wordBeingGuessed];
-    hintEl.textContent = word.hint;
+    hintEl.textContent +=  ' ' +word.hint;
 }
 
 

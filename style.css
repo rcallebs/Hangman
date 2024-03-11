@@ -65,6 +65,7 @@ img {
   display: grid;
   align-items: normal;
   margin-bottom: 4vmin;
+  padding: 2vmin;
 }
 
 .word-display {
@@ -82,4 +83,12 @@ img {
   width: 3vmin;
   border-bottom: 0.5vmin solid black;
   text-transform: uppercase;
+}
+
+.hint-box {
+    text-align: center;
+}
+
+.hint-word {
+    font-weight: bold;
 }
