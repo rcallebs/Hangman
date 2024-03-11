@@ -6,11 +6,11 @@ const myWords = [
 
   { word: "football", hint: "popular american sport" },
 
-  { word: "workout", hint: "" },
+  { word: "ocean", hint: "along both coasts" },
 
-  { word: "football", hint: "popular american sport" },
+  { word: "baseball", hint: "has a DH" },
 
-  { word: "football", hint: "popular american sport" },
+  {word: "recycle", hint: "reuse "},
 ];
 
 const maxGuesses = 6;
@@ -30,26 +30,25 @@ const hint = document.querySelector(`.hint`);
 const resetBtn = document.querySelector("#reset");
 
 /*----- event listeners -----*/
-buttons.forEach(button => {
-    button.addEventListener('click', guessHandler);
-    //make sure each button is showing the correct inner text
-    console.log(button.textContent);
+buttons.forEach((button) => {
+  button.addEventListener("click", guessHandler);
+  //make sure each button is showing the correct inner text
+  // console.log(button.textContent);
 });
 
 /*----- functions -----*/
 init();
 
-function init(){
-    guessIndex = 0;
-    incorrectGuess = 0;
-    characterBeingGuessed = 0;
-    wordBeingGuessed = 0;
-    opacity = 1;
-    showCharacterFlags = [];
-    getWord();
+//new/blank game variables
+function init() {
+  guessIndex = 0;
+  incorrectGuess = 0;
+  characterBeingGuessed = 0;
+  wordBeingGuessed = 0;
+  opacity = 1;
+  showCharacterFlags = [];
+  getWord();
 }
-
-
 
 function getWord() {
   wordBeingGuessed = Math.floor(myWords.length * Math.random());
@@ -66,8 +65,20 @@ function getWord() {
 function renderWord() {
   const wordDisplay = document.querySelector(`.word-display`);
   const word = myWords[wordBeingGuessed];
-  wordDisplay.textContent = word.word;
-//   textContent.style('')
+  //   wordDisplay.textContent = word.word;
+
+  for (let i = 0; i < word.word.length; i++) {
+    const letterElement = document.createElement("li");
+    letterElement.classList.add("letter");
+    if (showCharacterFlags[i]) {
+      // Display the letter if it's guessed correctly
+      letterElement.textContent = word.word[i];
+    } else {
+      // Display underscore if the letter is not yet guessed
+      letterElement.textContent = "_";
+    }
+    wordDisplay.appendChild(letterElement);
+  }
 }
 
 function renderHint() {

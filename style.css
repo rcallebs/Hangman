@@ -19,7 +19,7 @@ body {
 }
 
 .game-display {
-  width: 700px;
+  width: 780px;
   background: white;
   border-radius: 15px;
 }
@@ -81,18 +81,18 @@ img {
 
 .word-display .letter {
   width: 3vmin;
-  border-bottom: 0.5vmin solid black;
+  border-bottom: 2px solid black;
   text-transform: uppercase;
 }
 
 .hint-box {
-  text-align: center;
+    text-align: center;
 }
 
 .hint-word {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .hint {
-  margin-top: 1vmin;
+    margin-top: 1vmin;
 }
