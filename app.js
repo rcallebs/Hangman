@@ -1,3 +1,4 @@
+/*----- constants -----*/
 const myWords = [
   { word: "television", hint: "watch shows on" },
 
@@ -8,12 +9,26 @@ const myWords = [
 
 const maxGuesses = 6;
 
+/*----- state variables -----*/
 var guessIndex = 0;
 var incorrectGuess = 0;
 var characterBeingGuessed = 0;
 var wordBeingGuessed = 0;
 var opacity = 1;
 var showCharacterFlags = [];
+
+
+/*----- cached elements  -----*/
+const hint = document.querySelector(`.hint`);
+const resetBtn = document.querySelector('#reset');
+
+
+/*----- event listeners -----*/
+
+
+
+
+/*----- functions -----*/
 
 function getWord() {
   wordBeingGuessed = Math.floor(myWords.length * Math.random());
