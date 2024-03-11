@@ -1,9 +1,9 @@
 const myWords = [
   { word: "television", hint: "watch shows on" },
 
-  { word: "candle", hint: "smells good" },
+  { word: "candle", hint: "made of wax & a wick" },
 
-  { word: "football", hint: "popular sport" },
+  { word: "football", hint: "popular american sport" },
 ];
 
 const maxGuesses = 6;
@@ -15,11 +15,6 @@ var wordBeingGuessed = 0;
 var opacity = 1;
 var showCharacterFlags = [];
 
-
-
-
-
-
 function getWord() {
   wordBeingGuessed = Math.floor(myWords.length * Math.random());
   const word = myWords[wordBeingGuessed];
@@ -29,6 +24,7 @@ function getWord() {
   }
   return word;
 }
+
 
 function shouldShowChar(charIndex) {
   return showCharacterFlags[charIndex];
