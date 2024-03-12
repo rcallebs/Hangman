@@ -32,8 +32,6 @@ const resetBtn = document.querySelector("#reset");
 /*----- event listeners -----*/
 buttons.forEach((button) => {
   button.addEventListener("click", guessHandler);
-  //make sure each button is showing the correct inner text
-//   console.log((e) => e.target.innerText);
 });
 
 /*----- functions -----*/
@@ -87,9 +85,9 @@ function renderHint() {
   hintEl.textContent = word.hint;
 }
 
-function shouldShowChar(charIndex) {
-  return showCharacterFlags[charIndex];
-}
+// function shouldShowChar(charIndex) {
+//   return showCharacterFlags[charIndex];
+// }
 
 function guessHandler(event) {
     const guessedLetter = event.target.textContent;
@@ -103,7 +101,6 @@ function guessHandler(event) {
             showCharacterFlags[i] = true;
           }
         }
-    
         // Check if all letters have been guessed correctly
         if (showCharacterFlags.every(flag => flag)) {
           handleWin();
@@ -111,12 +108,13 @@ function guessHandler(event) {
       } else {
         // Incorrect guess handling
         incorrectGuess++;
-        opacity -= 1 / maxGuesses;
+        const incorrectGuessCountEl = document.querySelector(".wrongGuesses");
+        incorrectGuessCountEl.textContent = "Incorrect Guesses = " + incorrectGuess.toString();
+        // opacity -= 1 / maxGuesses;
         if (incorrectGuess >= maxGuesses) {
           handleLoss();
-        }
+        } 
       }
-    
       // Update the displayed word after the guess
       renderWord();
     }
