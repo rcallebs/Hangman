@@ -70,7 +70,7 @@ img {
 
 .word-display {
   display: flex;
-  gap: 5vmin;
+  gap: 3vmin;
   padding: 5px;
   margin: 5vmin;
   list-style: none;
