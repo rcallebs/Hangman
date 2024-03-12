@@ -10,7 +10,7 @@ const myWords = [
 
   { word: "baseball", hint: "has a DH" },
 
-  {word: "recycle", hint: "reuse "},
+  { word: "recycle", hint: "environmentally friendly" },
 ];
 
 const maxGuesses = 6;
@@ -33,7 +33,7 @@ const resetBtn = document.querySelector("#reset");
 buttons.forEach((button) => {
   button.addEventListener("click", guessHandler);
   //make sure each button is showing the correct inner text
-  // console.log(button.textContent);
+//   console.log((e) => e.target.innerText);
 });
 
 /*----- functions -----*/
@@ -65,8 +65,8 @@ function getWord() {
 function renderWord() {
   const wordDisplay = document.querySelector(`.word-display`);
   const word = myWords[wordBeingGuessed];
-  //   wordDisplay.textContent = word.word;
-
+  //need to clear the old content before rendering word
+  wordDisplay.innerHTML = '';
   for (let i = 0; i < word.word.length; i++) {
     const letterElement = document.createElement("li");
     letterElement.classList.add("letter");
@@ -91,23 +91,55 @@ function shouldShowChar(charIndex) {
   return showCharacterFlags[charIndex];
 }
 
-function guessHandler(charGuess, guessIndex) {
-  let thisWord = myWords[wordBeingGuessed];
-  let isCorrect = charGuess == thisWord.word[guessIndex];
-  if (isCorrect) {
-    showCharacterFlags[guessIndex] = true;
-    characterBeingGuessed += 1;
-    if (guessIndex == thisWord.word.length - 1) {
-      handleWin();
+function guessHandler(event) {
+    const guessedLetter = event.target.textContent;
+    // const buttonText = this.textContent;
+    const currentWord = myWords[wordBeingGuessed].word;
+    const isCorrectGuess = currentWord.includes(guessedLetter);
+    if (isCorrectGuess) {
+        // Update the showCharacterFlags array to reveal the guessed letter(s)
+        for (let i = 0; i < currentWord.length; i++) {
+          if (currentWord[i] === guessedLetter) {
+            showCharacterFlags[i] = true;
+          }
+        }
+    
+        // Check if all letters have been guessed correctly
+        if (showCharacterFlags.every(flag => flag)) {
+          handleWin();
+        }
+      } else {
+        // Incorrect guess handling
+        incorrectGuess++;
+        opacity -= 1 / maxGuesses;
+        if (incorrectGuess >= maxGuesses) {
+          handleLoss();
+        }
+      }
+    
+      // Update the displayed word after the guess
+      renderWord();
     }
-  } else {
-    incorrectGuess++;
-    opacity -= 1 / maxGuesses;
-    if (incorrectGuess >= maxGuesses) {
-      handleLoss();
-    }
-  }
-}
+ 
+
+// function guessHandler(charGuess, guessIndex) {
+//     console.log(event)
+//   let thisWord = myWords[wordBeingGuessed];
+//   let isCorrect = charGuess == thisWord.word[guessIndex];
+//   if (isCorrect) {
+//     showCharacterFlags[guessIndex] = true;
+//     characterBeingGuessed += 1;
+//     if (guessIndex == thisWord.word.length - 1) {
+//       handleWin();
+//     }
+//   } else {
+//     incorrectGuess++;
+//     opacity -= 1 / maxGuesses;
+//     if (incorrectGuess >= maxGuesses) {
+//       handleLoss();
+//     }
+//   }
+// }
 
 function handleWin() {}
 function handleLoss() {}
