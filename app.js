@@ -18,7 +18,6 @@ const maxGuesses = 6;
 const buttons = document.querySelectorAll(".keyboard button");
 
 /*----- state variables -----*/
-let guessIndex = 0;
 let incorrectGuess = 0;
 let characterBeingGuessed = 0;
 let wordBeingGuessed = 0;
@@ -40,7 +39,6 @@ init();
 
 //new/blank game variables
 function init() {
-  guessIndex = 0;
   incorrectGuess = 0;
   characterBeingGuessed = 0;
   wordBeingGuessed = 0;
@@ -108,6 +106,8 @@ function guessHandler(event) {
       handleLoss();
     }
   }
+  //remove event listener from each letter after it's been clicked
+  event.target.removeEventListener("click", guessHandler);
   // Update the displayed word after the guess
   renderWord();
 }
