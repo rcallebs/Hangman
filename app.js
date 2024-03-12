@@ -22,7 +22,6 @@ let guessIndex = 0;
 let incorrectGuess = 0;
 let characterBeingGuessed = 0;
 let wordBeingGuessed = 0;
-let opacity = 1;
 let showCharacterFlags = [];
 
 /*----- cached elements  -----*/
@@ -32,8 +31,9 @@ const resetBtn = document.querySelector("#reset");
 /*----- event listeners -----*/
 buttons.forEach((button) => {
   button.addEventListener("click", guessHandler);
-  console.log("whoops");
 });
+
+resetBtn.addEventListener("click", init);
 
 /*----- functions -----*/
 init();
@@ -44,7 +44,6 @@ function init() {
   incorrectGuess = 0;
   characterBeingGuessed = 0;
   wordBeingGuessed = 0;
-  opacity = 1;
   showCharacterFlags = [];
   getWord();
 }
