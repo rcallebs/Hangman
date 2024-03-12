@@ -95,4 +95,5 @@ img {
 
 .hint {
     margin-top: 1vmin;
+    display: flex;
 }

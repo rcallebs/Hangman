@@ -32,6 +32,7 @@ const resetBtn = document.querySelector("#reset");
 /*----- event listeners -----*/
 buttons.forEach((button) => {
   button.addEventListener("click", guessHandler);
+  console.log("whoops");
 });
 
 /*----- functions -----*/
@@ -101,7 +102,9 @@ function guessHandler(event) {
     const incorrectGuessCountEl = document.querySelector(".wrongGuesses");
     incorrectGuessCountEl.textContent =
       "Incorrect Guesses = " + incorrectGuess.toString() + "/" + maxGuesses;
-    // opacity -= 1 / maxGuesses;
+    let player = document.querySelector("#player");
+    console.log(player);
+    player.style.opacity = 1 - 0.166 * incorrectGuess;
     if (incorrectGuess >= maxGuesses) {
       handleLoss();
     }
@@ -110,7 +113,7 @@ function guessHandler(event) {
   renderWord();
 }
 
-function handleWin() {}
-function handleLoss() {
-  prompt;
+function handleWin() {
+  // document.getElementsByClassName
 }
+function handleLoss() {}
