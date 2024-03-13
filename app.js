@@ -6,10 +6,7 @@ const myWords = [
 
   { word: "football", hint: "Popular American sport" },
 
-  {
-    word: "ocean",
-    hint: "Large body of water that covers much of Earth's surface",
-  },
+  { word: "ocean", hint: "Body of water that covers of Earth's surface" },
 
   { word: "baseball", hint: "Considered America's pasttime" },
 
@@ -25,11 +22,14 @@ let incorrectGuess = 0;
 let characterBeingGuessed = 0;
 let wordBeingGuessed = 0;
 let showCharacterFlags = [];
+let selectedWord = [];
 
 /*----- cached elements  -----*/
 const hint = document.querySelector(`.hint`);
 const resetBtn = document.querySelector("#reset");
 const incorrectGuessCountEl = document.querySelector(".wrongGuesses");
+const showWord = document.getElementById("starting");
+const header = document.getElementById("title");
 
 /*----- event listeners -----*/
 buttons.forEach((button) => {
@@ -45,11 +45,14 @@ init();
 function init() {
   incorrectGuess = 0;
   characterBeingGuessed = 0;
-  wordBeingGuessed = 0;
   document.getElementById("player").style.opacity = 1;
   showCharacterFlags = [];
   incorrectGuessCountEl.textContent = "Incorrect Geusses = 0/6";
   getWord();
+  //reset the keyboard on new game
+  buttons.forEach((button) => (button.disabled = false));
+  showWord.innerHTML = "Geuss the word before your character disappears!";
+  header.innerHTML = "Don't Evaporate!"
 }
 
 function getWord() {
@@ -57,6 +60,7 @@ function getWord() {
   const word = myWords[wordBeingGuessed];
   renderHint();
   renderWord();
+  selectedWord.push(word.word);
   return word;
 }
 
@@ -83,7 +87,10 @@ function renderHint() {
 }
 
 function guessHandler(event) {
-  const guessedLetter = event.target.textContent;
+  const guessedButton = event.target;
+  const guessedLetter = guessedButton.textContent;
+  //disable button after it's been guessed
+  guessedButton.disabled = true;
   const currentWord = myWords[wordBeingGuessed].word;
   const isCorrectGuess = currentWord.includes(guessedLetter);
   if (isCorrectGuess) {
@@ -101,7 +108,6 @@ function guessHandler(event) {
     // Incorrect guess handling
     incorrectGuess++;
     // update html page with incorrect guess count
-    // const incorrectGuessCountEl = document.querySelector(".wrongGuesses");
     incorrectGuessCountEl.textContent =
       "Incorrect Guesses = " + incorrectGuess.toString() + "/" + maxGuesses;
     let player = document.querySelector("#player");
@@ -117,4 +123,10 @@ function guessHandler(event) {
 function handleWin() {
   // document.getElementsByClassName
 }
-function handleLoss() {}
+function handleLoss() {
+  buttons.forEach((button) => (button.disabled = true));
+  const heading = document.getElementById("title");
+  heading.innerHTML = "Oh no! You've evaporated!!<br>Better luck next time!";
+//   const showWord = document.getElementById("starting");
+  showWord.innerHTML = `The correct word was ${selectedWord}`;
+}
