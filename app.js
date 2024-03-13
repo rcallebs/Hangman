@@ -8,7 +8,7 @@ const myWords = [
 
   { word: "ocean", hint: "Body of water that covers of Earth's surface" },
 
-  { word: "baseball", hint: "Considered America's pasttime" },
+  { word: "baseball", hint: "Considered America's pastime" },
 
   { word: "recycle", hint: "Helps the enviroment by reusing materials" },
 ];
@@ -52,7 +52,7 @@ function init() {
   //reset the keyboard on new game
   buttons.forEach((button) => (button.disabled = false));
   showWord.innerHTML = "Geuss the word before your character disappears!";
-  header.innerHTML = "Don't Evaporate!"
+  header.innerHTML = "Don't Evaporate!";
 }
 
 function getWord() {
@@ -60,6 +60,8 @@ function getWord() {
   const word = myWords[wordBeingGuessed];
   renderHint();
   renderWord();
+  //clear previous games word from selectedWord array
+  selectedWord.splice(0, selectedWord.length);
   selectedWord.push(word.word);
   return word;
 }
@@ -120,13 +122,11 @@ function guessHandler(event) {
   renderWord();
 }
 
-function handleWin() {
-  // document.getElementsByClassName
-}
+function handleWin() {}
+
 function handleLoss() {
   buttons.forEach((button) => (button.disabled = true));
   const heading = document.getElementById("title");
   heading.innerHTML = "Oh no! You've evaporated!!<br>Better luck next time!";
-//   const showWord = document.getElementById("starting");
   showWord.innerHTML = `The correct word was ${selectedWord}`;
 }
