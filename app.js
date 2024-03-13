@@ -6,7 +6,10 @@ const myWords = [
 
   { word: "football", hint: "Popular American sport" },
 
-  { word: "ocean", hint: "Large body of water that covers much of Earth's surface" },
+  {
+    word: "ocean",
+    hint: "Large body of water that covers much of Earth's surface",
+  },
 
   { word: "baseball", hint: "Considered America's pasttime" },
 
@@ -26,6 +29,7 @@ let showCharacterFlags = [];
 /*----- cached elements  -----*/
 const hint = document.querySelector(`.hint`);
 const resetBtn = document.querySelector("#reset");
+const incorrectGuessCountEl = document.querySelector(".wrongGuesses");
 
 /*----- event listeners -----*/
 buttons.forEach((button) => {
@@ -44,7 +48,7 @@ function init() {
   wordBeingGuessed = 0;
   document.getElementById("player").style.opacity = 1;
   showCharacterFlags = [];
-  document.getElementsByClassName(".wrongGuesses").textContent = "Incorrect Guesses 0/6";
+  incorrectGuessCountEl.textContent = "Incorrect Geusses = 0/6";
   getWord();
 }
 
@@ -97,7 +101,7 @@ function guessHandler(event) {
     // Incorrect guess handling
     incorrectGuess++;
     // update html page with incorrect guess count
-    const incorrectGuessCountEl = document.querySelector(".wrongGuesses");
+    // const incorrectGuessCountEl = document.querySelector(".wrongGuesses");
     incorrectGuessCountEl.textContent =
       "Incorrect Guesses = " + incorrectGuess.toString() + "/" + maxGuesses;
     let player = document.querySelector("#player");
