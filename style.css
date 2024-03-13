@@ -19,8 +19,8 @@ body {
 }
 
 .game-display {
-  width: 90vh;
-  height: 90vh;
+  width: 75vh;
+  height: 75vh;
   background: white;
   border-radius: 15px;
 }

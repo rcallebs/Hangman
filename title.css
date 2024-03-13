@@ -1,0 +1,18 @@
+* {
+  margin: 1vh;
+  background-color: burlywood;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  text-align: center;
+}
+#start {
+  background-color: black;
+  color: white;
+}

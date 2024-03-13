@@ -1,5 +1,3 @@
-const startButton = document.getElementById("start");
-
-startButton.addEventListener("click", function (){
+document.getElementById("start").addEventListener("click", function (){
     window.location.href = "game.html";
 });

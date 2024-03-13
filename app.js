@@ -10,22 +10,26 @@ const myWords = [
 
   { word: "baseball", hint: "Considered America's pastime" },
 
+  { word: "broken", hint: "Not in working order" },
+
+  { word: "jukebox", hint: "Music player found in diners" },
+
+  { word: "sandwich", hint: "Typically made with two slices on the outside" },
+
   { word: "recycle", hint: "Helps the enviroment by reusing materials" },
 ];
 
 const maxGuesses = 6;
 
-const buttons = document.querySelectorAll(".keyboard button");
-
 /*----- state variables -----*/
 let incorrectGuess = 0;
-let characterBeingGuessed = 0;
 let wordBeingGuessed = 0;
 let showCharacterFlags = [];
 let selectedWord = [];
 let correctGuesses = 0;
 
 /*----- cached elements  -----*/
+const buttons = document.querySelectorAll(".keyboard button");
 const hint = document.querySelector(`.hint`);
 const resetBtn = document.querySelector("#reset");
 const incorrectGuessCountEl = document.querySelector(".wrongGuesses");
@@ -47,9 +51,7 @@ init();
 //new/blank game variables
 function init() {
   incorrectGuess = 0;
-  characterBeingGuessed = 0;
   document.getElementById("player").style.opacity = 1;
-  showCharacterFlags = [];
   incorrectGuessCountEl.textContent = "Incorrect Geusses = 0/6";
   getWord();
   //reset the keyboard on new game
@@ -62,7 +64,10 @@ function getWord() {
   wordBeingGuessed = Math.floor(myWords.length * Math.random());
   const word = myWords[wordBeingGuessed];
   //set all characterFlags to false
-  showCharacterFlags = Array(word.word.length).fill(false);
+  showCharacterFlags = [];
+  for (let i = 0; i < word.word.length; i++) {
+    showCharacterFlags.push(false);
+  }
   renderHint();
   renderWord();
   //clear previous games word from selectedWord array
@@ -128,10 +133,10 @@ function guessHandler(event) {
 }
 
 function handleWin() {
-    player.style.opacity = 1;
-    buttons.forEach((button) => (button.disabled = true));
-    heading.innerHTML = "You've got it!";
-    showWord.innerHTML = `Way to go! Your player can make it home safely!`;
+  player.style.opacity = 1;
+  buttons.forEach((button) => (button.disabled = true));
+  heading.innerHTML = "You've got it!";
+  showWord.innerHTML = `Way to go! Your player can make it home safely!`;
 }
 
 function handleLoss() {
