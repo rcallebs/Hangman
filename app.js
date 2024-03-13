@@ -1,16 +1,16 @@
 /*----- constants -----*/
 const myWords = [
-  { word: "television", hint: "watch shows on" },
+  { word: "television", hint: "A device used for watching shows and movies" },
 
-  { word: "candle", hint: "made of wax & a wick" },
+  { word: "candle", hint: "A source of light made of wax & a wick" },
 
-  { word: "football", hint: "popular american sport" },
+  { word: "football", hint: "Popular American sport" },
 
-  { word: "ocean", hint: "along both coasts" },
+  { word: "ocean", hint: "Large body of water that covers much of Earth's surface" },
 
-  { word: "baseball", hint: "has a DH" },
+  { word: "baseball", hint: "Considered America's pasttime" },
 
-  { word: "recycle", hint: "environmentally friendly" },
+  { word: "recycle", hint: "Helps the enviroment by reusing materials" },
 ];
 
 const maxGuesses = 6;
@@ -42,7 +42,9 @@ function init() {
   incorrectGuess = 0;
   characterBeingGuessed = 0;
   wordBeingGuessed = 0;
+  document.getElementById("player").style.opacity = 1;
   showCharacterFlags = [];
+  document.getElementsByClassName(".wrongGuesses").textContent = "Incorrect Guesses 0/6";
   getWord();
 }
 
@@ -78,7 +80,6 @@ function renderHint() {
 
 function guessHandler(event) {
   const guessedLetter = event.target.textContent;
-  // const buttonText = this.textContent;
   const currentWord = myWords[wordBeingGuessed].word;
   const isCorrectGuess = currentWord.includes(guessedLetter);
   if (isCorrectGuess) {
@@ -100,14 +101,11 @@ function guessHandler(event) {
     incorrectGuessCountEl.textContent =
       "Incorrect Guesses = " + incorrectGuess.toString() + "/" + maxGuesses;
     let player = document.querySelector("#player");
-    console.log(player);
     player.style.opacity = 1 - 0.166 * incorrectGuess;
     if (incorrectGuess >= maxGuesses) {
       handleLoss();
     }
   }
-  //remove event listener from each letter after it's been clicked
-  event.target.removeEventListener("click", guessHandler);
   // Update the displayed word after the guess
   renderWord();
 }

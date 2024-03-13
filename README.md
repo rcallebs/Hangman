@@ -26,4 +26,4 @@ After a round is over the player can click the reset button to have a new hidden
 
 ---
 ## Credits
-[MDN JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) | [HTML Dom Elements](https://www.w3schools.com/jsref/dom_obj_all.asp) | [CSS Basics](https://www.w3schools.com/css/default.asp)
+[MDN JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) | [HTML Dom Elements](https://www.w3schools.com/jsref/dom_obj_all.asp) | [CSS Basics](https://www.w3schools.com/css/default.asp) | [Linking](https://www.w3schools.com/js/js_window_location.asp)
