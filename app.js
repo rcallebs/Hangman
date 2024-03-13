@@ -23,6 +23,7 @@ let characterBeingGuessed = 0;
 let wordBeingGuessed = 0;
 let showCharacterFlags = [];
 let selectedWord = [];
+let correctGuesses = 0;
 
 /*----- cached elements  -----*/
 const hint = document.querySelector(`.hint`);
@@ -30,6 +31,8 @@ const resetBtn = document.querySelector("#reset");
 const incorrectGuessCountEl = document.querySelector(".wrongGuesses");
 const showWord = document.getElementById("starting");
 const header = document.getElementById("title");
+const player = document.querySelector("#player");
+const heading = document.getElementById("title");
 
 /*----- event listeners -----*/
 buttons.forEach((button) => {
@@ -58,10 +61,13 @@ function init() {
 function getWord() {
   wordBeingGuessed = Math.floor(myWords.length * Math.random());
   const word = myWords[wordBeingGuessed];
+  //set all characterFlags to false
+  showCharacterFlags = Array(word.word.length).fill(false);
   renderHint();
   renderWord();
   //clear previous games word from selectedWord array
   selectedWord.splice(0, selectedWord.length);
+  //add current word to selectedWord array
   selectedWord.push(word.word);
   return word;
 }
@@ -112,7 +118,6 @@ function guessHandler(event) {
     // update html page with incorrect guess count
     incorrectGuessCountEl.textContent =
       "Incorrect Guesses = " + incorrectGuess.toString() + "/" + maxGuesses;
-    let player = document.querySelector("#player");
     player.style.opacity = 1 - 0.166 * incorrectGuess;
     if (incorrectGuess >= maxGuesses) {
       handleLoss();
@@ -122,11 +127,15 @@ function guessHandler(event) {
   renderWord();
 }
 
-function handleWin() {}
+function handleWin() {
+    player.style.opacity = 1;
+    buttons.forEach((button) => (button.disabled = true));
+    heading.innerHTML = "You've got it!";
+    showWord.innerHTML = `Way to go! Your player can make it home safely!`;
+}
 
 function handleLoss() {
   buttons.forEach((button) => (button.disabled = true));
-  const heading = document.getElementById("title");
   heading.innerHTML = "Oh no! You've evaporated!!<br>Better luck next time!";
   showWord.innerHTML = `The correct word was ${selectedWord}`;
 }
