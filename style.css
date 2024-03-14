@@ -44,14 +44,16 @@ img {
 .box {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  align-items: center;
 }
 
 .keyboard {
-  padding: 2vmin;
+  /* padding: 2vmin; */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  width: 33%;
+  width: 25%;
   margin-bottom: 1vmin;
 }
 
@@ -66,7 +68,9 @@ img {
   display: grid;
   align-items: normal;
   margin-bottom: 4vmin;
-  padding: 2vmin;
+  /* padding: 2vmin; */
+  text-align: center;
+  width: 25%;
 }
 
 .word-display {
@@ -88,27 +92,32 @@ img {
 
 .hint-box {
   text-align: center;
+  width: 100%;
 }
 
 .hint-word {
   font-weight: bold;
   text-align: center;
+  width: 100%;
 }
 
 .hint {
   margin-top: 1vmin;
-  display: flex;
+  /* display: flex; */
+  /* padding: 1vmin; */
 }
 
 .grid-container {
   display: flex;
+  width: 100%;
   margin-bottom: 5vmin;
+  align-items: stretch;
 }
 
 #footer {
-    position: absolute;
-    bottom: 30px;
-    width: 90vh;
-    display: flex;
-    flex: auto;
+  position: absolute;
+  bottom: 30px;
+  width: 90vh;
+  /* display: flex; */
+  /* flex: auto; */
 }
