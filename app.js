@@ -27,6 +27,7 @@ let wordBeingGuessed = 0;
 let showCharacterFlags = [];
 let selectedWord = [];
 let correctGuesses = 0;
+let gameRunning = true;
 
 /*----- cached elements  -----*/
 const buttons = document.querySelectorAll(".keyboard button");
@@ -50,11 +51,15 @@ init();
 
 //new/blank game variables
 function init() {
+  //reset button background color on new game
+  buttons.forEach((button) => {
+    button.style.backgroundColor = "";
+  });
   incorrectGuess = 0;
   document.getElementById("player").style.opacity = 1;
   incorrectGuessCountEl.textContent = "Incorrect Geusses = 0/6";
   getWord();
-  //reset the keyboard on new game
+  //reset selected letters on new game
   buttons.forEach((button) => (button.disabled = false));
   showWord.innerHTML = "Geuss the word before your character disappears!";
   header.innerHTML = "Don't Evaporate!";
@@ -102,6 +107,8 @@ function renderHint() {
 function guessHandler(event) {
   const guessedButton = event.target;
   const guessedLetter = guessedButton.textContent;
+  //change background color of button on click
+  guessedButton.style.backgroundColor = "black";
   //disable button after it's been guessed
   guessedButton.disabled = true;
   const currentWord = myWords[wordBeingGuessed].word;
@@ -137,10 +144,12 @@ function handleWin() {
   buttons.forEach((button) => (button.disabled = true));
   heading.innerHTML = "You've got it!";
   showWord.innerHTML = `Way to go! Your player can make it home safely!`;
+  gameRunning = false;
 }
 
 function handleLoss() {
   buttons.forEach((button) => (button.disabled = true));
   heading.innerHTML = "Oh no! You've evaporated!!<br>Better luck next time!";
   showWord.innerHTML = `The correct word was ${selectedWord}`;
+  gameRunning = false;
 }
