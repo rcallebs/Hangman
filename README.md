@@ -15,7 +15,8 @@ The user will click on any letter of the alphabet to make their guess. If that l
 If a letter is guessed that is not in the word, the player's opacity will decrease by 1/6. After six incorrect guesses the player will have evaporated and the game will be over.
 ![Loser](https://c02.purpledshub.com/uploads/sites/41/2020/05/GettyImages-626880692-c-3347c4e.jpg?w=940&webp=1)
 
-If the player guesses the hidden word before the stick figure is completed, they will have won that round and have full opacity restored. ![Winner](https://i.gifer.com/T6Su.gif)
+If the player guesses the hidden word before the stick figure is completed, they will have won that round and have full opacity restored. 
+![Winner](image.png)
 
 After a round is over the player can click the reset button to have a new hidden word replace the previous word and the keyboard will be reset. Resetting the game will clear the board, the opacity of the player, and the incorrect guess count will be set back to zero.
 
