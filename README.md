@@ -15,7 +15,7 @@ The user will click on any letter of the alphabet to make their guess. If that l
 If a letter is guessed that is not in the word, the player's opacity will decrease by 1/6. After six incorrect guesses the player will have evaporated and the game will be over.
 ![Loser](https://c02.purpledshub.com/uploads/sites/41/2020/05/GettyImages-626880692-c-3347c4e.jpg?w=940&webp=1)
 
-If the player guesses the hidden word before the stick figure is completed, they will have won that round and have full opacity restored. ![Winner](https://i.gifer.com/RL4o.gif)
+If the player guesses the hidden word before the stick figure is completed, they will have won that round and have full opacity restored. ![Winner](https://i.gifer.com/T6Su.gif)
 
 After a round is over the player can click the reset button to have a new hidden word replace the previous word and the keyboard will be reset. Resetting the game will clear the board, the opacity of the player, and the incorrect guess count will be set back to zero.
 
@@ -33,4 +33,4 @@ After a round is over the player can click the reset button to have a new hidden
 - John Jacobs
 - Quentin Donnelly
 
-[MDN JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) | [HTML Dom Elements](https://www.w3schools.com/jsref/dom_obj_all.asp) | [CSS Basics](https://www.w3schools.com/css/default.asp) | [Linking](https://www.w3schools.com/js/js_window_location.asp) | [Image](https://www.vecteezy.com/vector-art/38104978-funny-stick-figure-hand-drawn-style-for-print) | [GIF](https://tenor.com/view/peace-ghost-gif-4978918) |
+[MDN JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) | [HTML Dom Elements](https://www.w3schools.com/jsref/dom_obj_all.asp) | [CSS Basics](https://www.w3schools.com/css/default.asp) | [Linking](https://www.w3schools.com/js/js_window_location.asp) | [Player Image](https://www.vecteezy.com/vector-art/38104978-funny-stick-figure-hand-drawn-style-for-print) | [Start Page GIF](https://tenor.com/view/peace-ghost-gif-4978918) |
