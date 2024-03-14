@@ -19,8 +19,8 @@ body {
 }
 
 .game-display {
-  width: 75vh;
-  height: 75vh;
+  width: 90vh;
+  height: 90vh;
   background: white;
   border-radius: 15px;
 }
@@ -87,7 +87,7 @@ img {
 }
 
 .hint-box {
-  text-align: justify;
+  text-align: center;
 }
 
 .hint-word {
@@ -101,7 +101,14 @@ img {
 }
 
 .grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
   margin-bottom: 5vmin;
+}
+
+#footer {
+    position: absolute;
+    bottom: 30px;
+    width: 90vh;
+    display: flex;
+    flex: auto;
 }
