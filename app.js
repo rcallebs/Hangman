@@ -56,7 +56,7 @@ function init() {
   });
   incorrectGuess = 0;
   document.getElementById("player").style.opacity = 1;
-  incorrectGuessCountEl.textContent = "Incorrect Geusses = 0/6";
+  incorrectGuessCountEl.textContent = "Incorrect Guesses = 0/6";
   getWord();
   //reset selected letters on new game
   buttons.forEach((button) => (button.disabled = false));
