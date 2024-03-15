@@ -122,3 +122,10 @@ img {
   bottom: 30px;
   width: 90vh;
 }
+
+#reset {
+  background: rgb(34, 82, 177);
+  color: aliceblue;
+  border-radius: 15px;
+  cursor: pointer;
+}

@@ -130,13 +130,14 @@ function guessHandler(event) {
     // update html page with incorrect guess count
     incorrectGuessCountEl.textContent =
       "Incorrect Guesses = " + incorrectGuess.toString() + "/" + maxGuesses;
-    player.style.opacity = 1 - 0.166 * incorrectGuess;
+    player.style.opacity = 1 - (0.166 * incorrectGuess);
     if (incorrectGuess >= maxGuesses) {
       handleLoss();
     }
   }
   // Update the displayed word after the guess
   renderWord();
+  newGame();
 }
 
 function handleWin() {
@@ -152,4 +153,8 @@ function handleLoss() {
   heading.innerHTML = "Oh no! You've evaporated!!<br>Better luck next time!";
   showWord.innerHTML = `The correct word was ${selectedWord}`;
   gameRunning = false;
+}
+
+function newGame(){
+  resetBtn.style.visibility = incorrectGuess >= 6 ? 'visible' : 'hidden';
 }
