@@ -27,7 +27,6 @@ let wordBeingGuessed = 0;
 let showCharacterFlags = [];
 let selectedWord = [];
 let correctGuesses = 0;
-let gameRunning = true;
 
 /*----- cached elements  -----*/
 const buttons = document.querySelectorAll(".keyboard button");
@@ -130,14 +129,13 @@ function guessHandler(event) {
     // update html page with incorrect guess count
     incorrectGuessCountEl.textContent =
       "Incorrect Guesses = " + incorrectGuess.toString() + "/" + maxGuesses;
-    player.style.opacity = 1 - (0.166 * incorrectGuess);
+    player.style.opacity = 1 - 0.166 * incorrectGuess;
     if (incorrectGuess >= maxGuesses) {
       handleLoss();
     }
   }
   // Update the displayed word after the guess
   renderWord();
-  newGame();
 }
 
 function handleWin() {
@@ -145,16 +143,11 @@ function handleWin() {
   buttons.forEach((button) => (button.disabled = true));
   heading.innerHTML = "You've got it!";
   showWord.innerHTML = `Way to go! Your player can make it home safely!`;
-  gameRunning = false;
+  resetBtn.style.visibility = "visible";
 }
 
 function handleLoss() {
   buttons.forEach((button) => (button.disabled = true));
   heading.innerHTML = "Oh no! You've evaporated!!<br>Better luck next time!";
   showWord.innerHTML = `The correct word was ${selectedWord}`;
-  gameRunning = false;
-}
-
-function newGame(){
-  resetBtn.style.visibility = incorrectGuess >= 6 ? 'visible' : 'hidden';
 }
