@@ -6,6 +6,8 @@
 
 ## ![Don't Evaporate](https://media.tenor.com/3W-jeEA5pgsAAAAi/evaporate-disappear.gif)
 
+# [Play Here](https://callebs-game-unit1.surge.sh/)
+
 ### Gameplay
 
 A user attempts to guess a random hidden word shown that at the start, only the length of the word is shown, notated by underscores.
